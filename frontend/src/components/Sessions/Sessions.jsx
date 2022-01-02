@@ -15,7 +15,7 @@ function Sessions(props) {
 
     useEffect(() => {
         getUserAverageSessions().then(datas => setUserAverageSessions(datas));     
-        userAverageSessions && console.log(userAverageSessions) 
+        
     }, [])
 
     function CustomTooltip({active, payload }) {
@@ -24,6 +24,34 @@ function Sessions(props) {
         }
       
         return null;
+    }
+
+    function changeValues() {
+        let arrayDays = [];
+
+        userAverageSessions && userAverageSessions.data.sessions.map(session => {
+            switch (session.day) {
+                case 1:
+                    arrayDays.push('L');
+                case 2:
+                    arrayDays.push('M');
+                case 3:
+                    arrayDays.push('M');
+                case 4:
+                    arrayDays.push('J');
+                case 5:
+                    arrayDays.push('V');
+                case 6:
+                    arrayDays.push('S');
+                case 7:
+                    arrayDays.push('D');
+
+                default:
+                    return false
+            }
+
+        })
+        return arrayDays;
     }
 
     return (
@@ -36,7 +64,7 @@ function Sessions(props) {
                     margin={{ top: 0, right: 12, bottom: 24, left: 12 }}
                 >
                 <XAxis
-                    dataKey="day"
+                    dataKey={() => changeValues()}
                     stroke="rgba(255, 255, 255, 0.6)"
                     axisLine={false}
                     dy={10}
