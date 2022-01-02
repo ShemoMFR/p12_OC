@@ -19,13 +19,10 @@ import { getUserActivity, getUserAverageSessions, getUserPerformance } from '../
 
 function Profil() {
     const [userPerformance, setUserPerformance] = useState('');
-    const [userActivity, setUserActivity] = useState('');
-    const [userAverageSessions, setUserAverageSessions] = useState('');
 
     useEffect(() => {
         getUserPerformance().then(datas => setUserPerformance(datas));
-        getUserActivity().then(datas => setUserActivity(datas));
-        getUserAverageSessions().then(datas => setUserAverageSessions(datas));        
+          
    }, [])
 
     
@@ -39,7 +36,7 @@ function Profil() {
                     <div className='containerActivites'>
                             <div style={{display: 'flex', flexDirection:'column'}}>
                                 <Activites />
-                                <div>
+                                <div className='containerGrahs'>
                                     <Sessions />
                                     <Performances />
                                     <Score />

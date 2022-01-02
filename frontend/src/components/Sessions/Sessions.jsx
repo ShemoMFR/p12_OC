@@ -33,21 +33,28 @@ function Sessions(props) {
             switch (session.day) {
                 case 1:
                     arrayDays.push('L');
+                    break;
                 case 2:
                     arrayDays.push('M');
+                    break;
                 case 3:
                     arrayDays.push('M');
+                    break;
                 case 4:
                     arrayDays.push('J');
+                    break;
                 case 5:
                     arrayDays.push('V');
+                    break;
                 case 6:
                     arrayDays.push('S');
+                    break;
                 case 7:
                     arrayDays.push('D');
+                    break;
 
                 default:
-                    return false
+                    break;
             }
 
         })
@@ -55,7 +62,7 @@ function Sessions(props) {
     }
 
     return (
-        <div className='container'>
+        <div className='containerSessions'>
             <h1 className='title'>Durée moyenne des sessions</h1>
             <ResponsiveContainer width="100%" height="100%">
                 <LineChart

@@ -20,3 +20,9 @@
     justify-content: space-between;
     width: 100%;
 }
+
+.containerGrahs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
