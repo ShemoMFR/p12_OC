@@ -1,0 +1,55 @@
+.containerNutriments {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 700px;
+    width: 300px;
+    margin-top: -50px;
+}
+
+.card {
+    display: flex;
+    /* justify-content: flex-start;
+    align-items: center; */
+    padding: 35px;
+    width: 258px;
+    height: 124px;
+    background: #FBFBFB;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+    border-radius: 5px;
+    
+}
+
+.containerTxt {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    margin-left: 20px;
+}
+
+.icon {
+    width: 60px;
+    height: 60px;
+}
+
+.value {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    color: #282D30;
+}
+
+.txtValue {
+    
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    color: #74798C;
+}

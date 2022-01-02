@@ -1,0 +1,22 @@
+.containerProfil {
+    min-width: 1024px;
+    min-height: 780px;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.containerSideNav {
+    display: flex;
+    width: 100%;
+}
+
+.containerHeader {
+    width: 100%;
+    padding: 80px;
+}
+
+.containerActivites {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
