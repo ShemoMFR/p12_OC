@@ -15,7 +15,6 @@ function Performances(props) {
 
     useEffect(() => {
         getUserPerformance().then(datas => setUserPerformance(datas));
-        //userPerformance && console.log(userPerformance.data.data)          
     }, [])
 
     function buildObjectDatas() {

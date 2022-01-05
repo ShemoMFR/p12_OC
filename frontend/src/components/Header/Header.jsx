@@ -13,7 +13,7 @@ function Header() {
     const [userDatas, setUserDatas] = useState('');
 
     useEffect(() => {
-        getUserDatas().then(datas => setUserDatas(datas));
+        getUserDatas().then(datas => setUserDatas(datas)); 
    }, []);
 
     return (

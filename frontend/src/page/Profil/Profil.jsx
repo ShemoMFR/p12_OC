@@ -1,5 +1,5 @@
 /* Librairies */
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 /* CSS */ 
 import './Profil.css';
@@ -14,17 +14,7 @@ import Sessions from '../../components/Sessions/Sessions';
 import Performances from '../../components/Performances/Performances';
 import Score from '../../components/Score/Score';
 
-/* Service */
-import { getUserActivity, getUserAverageSessions, getUserPerformance } from '../../service/Api';
-
 function Profil() {
-    const [userPerformance, setUserPerformance] = useState('');
-
-    useEffect(() => {
-        getUserPerformance().then(datas => setUserPerformance(datas));
-          
-   }, [])
-
     
     return (
         <div className='containerProfil'>
