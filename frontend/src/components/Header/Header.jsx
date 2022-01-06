@@ -18,7 +18,7 @@ function Header() {
 
     return (
         <div className='containerHeader'>
-            <h1 className='profilHeader'>Bonjour <span style={{color: "red"}}>{userDatas && userDatas.data.userInfos.lastName}</span></h1>
+            <h1 className='profilHeader'>Bonjour <span style={{color: "red"}}>{userDatas && userDatas.data.userInfos.firstName}</span></h1>
             <h2 className='profilHeaderSub'>Félicitation ! Vous avez explosé vos objectifs hier 👏</h2>
         </div>
     )
