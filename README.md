@@ -1,9 +1,9 @@
 # p12_OCSportSee
-Prerequisites
+#Prerequisites
 
     NodeJS v14.16.1 (contains npm, which is also needed)
 
-Dependencies
+#Dependencies
 
     React v17.0.2
     react-router-dom v5.2.0
@@ -12,7 +12,7 @@ Dependencies
     prop-types v15.7.2
     styled-components v5.2.3
 
-Installation
+#Installation
 
     Clone this repository
 
@@ -28,7 +28,7 @@ Installation
 
     Getting the backend
 
-    This project uses a micro API available with instructions here. https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard
+    This project uses a micro API available with instructions [here.](https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard)
     There are 2 users available for the time being, their URL are
         http://localhost:3002/user/12
         http://localhost:3002/user/18
