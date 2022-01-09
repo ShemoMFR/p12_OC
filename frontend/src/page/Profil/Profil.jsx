@@ -1,5 +1,5 @@
 /* Librairies */
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 
 /* CSS */ 
 import './Profil.css';
@@ -14,7 +14,25 @@ import Sessions from '../../components/Sessions/Sessions';
 import Performances from '../../components/Performances/Performances';
 import Score from '../../components/Score/Score';
 
+/* Service */
+import { getUserDatas, getUserActivity, getUserAverageSessions, getUserPerformance } from '../../service/Api';
+
 function Profil() {
+
+    const [userDatas, setUserDatas] = useState('');
+    const [userActivity, setUserActivity] = useState([]);
+    const [userAverageSessions, setUserAverageSessions] = useState([]);
+    const [userPerformance, setUserPerformance] = useState('');
+
+    useEffect(() => {
+        getUserDatas().then(datas => setUserDatas(datas)); 
+        getUserActivity().then(datas => setUserActivity(datas.data.sessions));
+        getUserAverageSessions().then(datas => setUserAverageSessions(datas));    
+        getUserPerformance().then(datas => setUserPerformance(datas));
+
+        userDatas && console.log(userDatas.data.userInfos)
+
+   }, []);
     
     return (
         <div className='containerProfil'>
@@ -22,17 +40,17 @@ function Profil() {
             <div className='containerSideNav'>
                 <Navside />
                 <div className='containerHeader'>
-                    <Header />
+                    {userDatas && <Header data={userDatas.data.userInfos} /> }
                     <div className='containerActivites'>
                             <div style={{display: 'flex', flexDirection:'column'}}>
-                                <Activites />
+                                <Activites data={userActivity}/>
                                 <div className='containerGrahs'>
-                                    <Sessions />
-                                    <Performances />
-                                    <Score />
+                                    <Sessions data={userAverageSessions}/>
+                                    <Performances data={userPerformance} />
+                                    <Score data={userDatas.data} />
                                 </div>
                             </div>
-                        <Nutriments />
+                        <Nutriments data={userDatas} />
                     </div>
                 </div>
             </div>

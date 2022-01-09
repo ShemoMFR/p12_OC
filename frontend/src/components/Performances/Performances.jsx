@@ -11,22 +11,22 @@ import '../../style.css';
 
 function Performances(props) {
     let datas = [];
-    const [userPerformance, setUserPerformance] = useState('');
-
-    useEffect(() => {
+/*     const [userPerformance, setUserPerformance] = useState('');
+ */
+   /*  useEffect(() => {
         getUserPerformance().then(datas => setUserPerformance(datas));
-    }, [])
+    }, []) */
 
     function buildObjectDatas() {
         
         let categories = [];
         let values = [];
 
-        userPerformance && Object.keys(userPerformance.data.kind).map((keyName, keyIndex) => {
-            categories.push(userPerformance.data.kind[keyName])
+        props.data && Object.keys(props.data.data.kind).map((keyName, keyIndex) => {
+            categories.push(props.data.data.kind[keyName])
         })
         
-        userPerformance && userPerformance.data.data.map((value, index) => {
+        props.data && props.data.data.data.map((value, index) => {
             values.push(value.value);
             datas.push({kind: categories[index], value: value.value})
         })

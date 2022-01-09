@@ -3,19 +3,20 @@ import React, {useState, useEffect} from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 /* Components */ 
-import { getUserActivity } from '../../service/Api';
-
+/* import { getUserActivity } from '../../service/Api';
+ */
 /* CSS */
 import './Activites.css';
 import '../../style.css';
 
-function Activites() {
+function Activites(props) {
 
-    const [userActivity, setUserActivity] = useState([]);
+    /* const [userActivity, setUserActivity] = useState([]);
 
     useEffect(() => {
         getUserActivity().then(datas => setUserActivity(datas.data.sessions));
-    }, [])
+        console.log(props.data)
+    }, []) */
 
     return (
         <div className='activites'>
@@ -38,7 +39,7 @@ function Activites() {
                 margin={{
                     top: 50,
                 }}
-                data={userActivity}
+                data={props.data}
                 barGap={7}
                 barCategoryGap={1}
             >

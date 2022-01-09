@@ -1,22 +1,21 @@
 /* Librairies */
-import React, {useEffect, useState} from 'react'; 
+import React from 'react'; 
 import {ResponsiveContainer, LineChart, XAxis, Tooltip, Line, YAxis} from 'recharts';
 
 /* Service */
-import {getUserAverageSessions} from '../../service/Api';
-
+/* import {getUserAverageSessions} from '../../service/Api';
+ */
 /* CSS */
 import './Sessions.css';
 import '../../style.css';
 
 function Sessions(props) {
 
-    const [userAverageSessions, setUserAverageSessions] = useState([]);
+    /* const [userAverageSessions, setUserAverageSessions] = useState([]);
 
     useEffect(() => {
         getUserAverageSessions().then(datas => setUserAverageSessions(datas));     
-        
-    }, [])
+    }, []) */
 
     function CustomTooltip({active, payload }) {
         if (active && payload) {
@@ -29,7 +28,7 @@ function Sessions(props) {
     function changeValues() {
         let arrayDays = [];
 
-        userAverageSessions && userAverageSessions.data.sessions.map(session => {
+        props.data && props.data.data.sessions.map(session => {
             switch (session.day) {
                 case 1:
                     arrayDays.push('L');
@@ -66,7 +65,7 @@ function Sessions(props) {
             <h1 className='title'>Durée moyenne des sessions</h1>
             <ResponsiveContainer width="100%" height="100%">
                 <LineChart
-                    data={userAverageSessions.data?.sessions}
+                    data={props.data.data?.sessions}
                     outerRadius="75%"
                     margin={{ top: 0, right: 12, bottom: 24, left: 12 }}
                 >

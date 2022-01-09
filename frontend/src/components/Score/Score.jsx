@@ -10,19 +10,19 @@ import './Score.css';
 import '../../style.css';
 
 
-function Score() {
+function Score(props) {
 
     const [userScore, setScore] = useState([]);
 
 	const pieData = [
-		{ name: "completed", value: userScore && userScore.score, fillColor: "#FF0000" },
-		{ name: "not-completed", value: 1 - userScore && userScore.score, fillColor: "transparent" },
+		{ name: "completed", value: props.data && props.data.score, fillColor: "#FF0000" },
+		{ name: "not-completed", value: 1 - props.data && props.data.score, fillColor: "transparent" },
 	  ];
 
-    useEffect(() => {
+    /* useEffect(() => {
         getUserDatas().then(datas => setScore(datas.data))
 		
-   }, []);
+   }, []); */
 	
 	return (
 
@@ -54,7 +54,7 @@ function Score() {
 				</ResponsiveContainer>
 
 				<div className='objective'>
-					<span>{userScore && userScore.score * 100}%</span> <br /> de votre <br />
+					<span>{props.data && props.data.score * 100}%</span> <br /> de votre <br />
  					de votre objectif
 				</div> 
             

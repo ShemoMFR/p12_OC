@@ -1,9 +1,9 @@
 /* Librairies */
-import React, {useEffect, useState} from 'react'; 
+import React from 'react'; 
 
 /* Service */
-import { getUserDatas } from '../../service/Api';
-
+/* import { getUserDatas } from '../../service/Api';
+ */
 /* CSS */
 import './Nutriments.css';
 import '../../style.css';
@@ -14,13 +14,13 @@ import protein from '../../images/protein-icon.png'
 import fat from '../../images/fat-icon.png'
 import carbs from '../../images/carbs-icon.png'
 
-function Nutriments() {
+function Nutriments(props) {
 
-    const [userDatas, setUserDatas] = useState('');
+    /* const [userDatas, setUserDatas] = useState('');
 
     useEffect(() => {
         getUserDatas().then(datas => setUserDatas(datas));
-   }, []);
+   }, []); */
 
     return (
         <div className='containerNutriments'>
@@ -29,7 +29,7 @@ function Nutriments() {
                     <img src={energy} className='icon' alt='' />
                 </div>
                 <div className='containerTxt'>
-                    <div className='value'>{userDatas.data?.keyData.calorieCount}</div>
+                    <div className='value'>{props.data.data?.keyData.calorieCount}</div>
                     <div className='txtValue'>Calories</div>
                 </div>
             </div>
@@ -38,7 +38,7 @@ function Nutriments() {
                     <img src={protein} className='icon' alt='' />
                 </div>
                 <div className='containerTxt'>
-                    <div className='value'>{userDatas.data?.keyData.proteinCount}</div>
+                    <div className='value'>{props.data.data?.keyData.proteinCount}</div>
                     <div className='txtValue'>Protéines</div>
                 </div>
             </div>
@@ -47,7 +47,7 @@ function Nutriments() {
                     <img src={carbs} className='icon' alt='' />
                 </div>
                 <div className='containerTxt'>
-                    <div className='value'>{userDatas.data?.keyData.carbohydrateCount}</div>
+                    <div className='value'>{props.data.data?.keyData.carbohydrateCount}</div>
                     <div className='txtValue'>Glucides</div>
                 </div>
             </div>
@@ -56,7 +56,7 @@ function Nutriments() {
                     <img src={fat} className='icon' alt='' />
                 </div>
                 <div className='containerTxt'>
-                    <div className='value'>{userDatas.data?.keyData.lipidCount}</div>
+                    <div className='value'>{props.data.data?.keyData.lipidCount}</div>
                     <div className='txtValue'>Lipides</div>
                 </div>
             </div>
