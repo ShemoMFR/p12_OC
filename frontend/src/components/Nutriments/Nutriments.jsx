@@ -1,9 +1,6 @@
 /* Librairies */
 import React from 'react'; 
 
-/* Service */
-/* import { getUserDatas } from '../../service/Api';
- */
 /* CSS */
 import './Nutriments.css';
 import '../../style.css';
@@ -15,12 +12,6 @@ import fat from '../../images/fat-icon.png'
 import carbs from '../../images/carbs-icon.png'
 
 function Nutriments(props) {
-
-    /* const [userDatas, setUserDatas] = useState('');
-
-    useEffect(() => {
-        getUserDatas().then(datas => setUserDatas(datas));
-   }, []); */
 
     return (
         <div className='containerNutriments'>

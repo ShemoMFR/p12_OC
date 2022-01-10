@@ -19,6 +19,8 @@ import Score from '../../components/Score/Score';
 /* Service */
 import { getUserDatas, getUserActivity, getUserAverageSessions, getUserPerformance } from '../../service/Api';
 
+let score = 0;
+
 function Profil() {
 
     const {id} = useParams();
@@ -32,16 +34,21 @@ function Profil() {
 
         if (id == 12 || id == 18) {
 
-            getUserDatas(id).then(datas => setUserDatas(datas)); 
+            getUserDatas(id).then(datas => {
+                setUserDatas(datas);
+                datas.data.score ? score = datas.data.score : score = datas.data.todayScore;
+            }); 
             getUserActivity(id).then(datas => setUserActivity(datas.data.sessions));
             getUserAverageSessions(id).then(datas => setUserAverageSessions(datas.data.sessions));    
             getUserPerformance(id).then(datas => setUserPerformance(datas));
+
         }
+
    }, []);
     
     return (
         <div>
-        { id == '12' || id == '18' ? <div className='containerProfil'>
+        { id === '12' || id === '18' ? <div className='containerProfil'>
                 <Navbar />
                 <div className='containerSideNav'>
                     <Navside />
@@ -53,7 +60,7 @@ function Profil() {
                                     <div className='containerGrahs'>
                                         <Sessions data={userAverageSessions}/> 
                                         { userPerformance && <Performances data={userPerformance.data.data} kind={userPerformance.data.kind} /> }
-                                        { userDatas && <Score data={userDatas.data.score} /> }
+                                        <Score data={score} /> 
                                     </div>
                                 </div>
                             <Nutriments data={userDatas} />
