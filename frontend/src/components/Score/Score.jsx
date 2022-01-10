@@ -30,9 +30,7 @@ function Score(props) {
 						outerRadius={80}
 						startAngle={90}
 						endAngle={200}
-					>
-
-						
+					>						
 						{pieData.map((entry, index) => (
 						<Cell
 							key={`cell-${index}`}
