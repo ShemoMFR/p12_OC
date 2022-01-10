@@ -1,21 +1,13 @@
 /* Librairies */
 import React from 'react'; 
+import PropTypes from 'prop-types';
 import {ResponsiveContainer, LineChart, XAxis, Tooltip, Line, YAxis} from 'recharts';
 
-/* Service */
-/* import {getUserAverageSessions} from '../../service/Api';
- */
 /* CSS */
 import './Sessions.css';
 import '../../style.css';
 
 function Sessions(props) {
-
-    /* const [userAverageSessions, setUserAverageSessions] = useState([]);
-
-    useEffect(() => {
-        getUserAverageSessions().then(datas => setUserAverageSessions(datas));     
-    }, []) */
 
     function CustomTooltip({active, payload }) {
         if (active && payload) {
@@ -28,7 +20,7 @@ function Sessions(props) {
     function changeValues() {
         let arrayDays = [];
 
-        props.data && props.data.data.sessions.map(session => {
+        props.data && props.data.map(session => {
             switch (session.day) {
                 case 1:
                     arrayDays.push('L');
@@ -65,7 +57,7 @@ function Sessions(props) {
             <h1 className='title'>Durée moyenne des sessions</h1>
             <ResponsiveContainer width="100%" height="100%">
                 <LineChart
-                    data={props.data.data?.sessions}
+                    data={props.data}
                     outerRadius="75%"
                     margin={{ top: 0, right: 12, bottom: 24, left: 12 }}
                 >
@@ -111,6 +103,12 @@ function Sessions(props) {
     )
 }
 
+Sessions.propTypes = {  
+    data: PropTypes.arrayOf(PropTypes.shape({
+        sessionLength: PropTypes.number,
+        day: PropTypes.number
+    }))
+};
 
 export default Sessions
 

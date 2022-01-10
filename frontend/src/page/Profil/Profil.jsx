@@ -27,11 +27,8 @@ function Profil() {
     useEffect(() => {
         getUserDatas().then(datas => setUserDatas(datas)); 
         getUserActivity().then(datas => setUserActivity(datas.data.sessions));
-        getUserAverageSessions().then(datas => setUserAverageSessions(datas));    
+        getUserAverageSessions().then(datas => setUserAverageSessions(datas.data.sessions));    
         getUserPerformance().then(datas => setUserPerformance(datas));
-
-        userDatas && console.log(userDatas.data.userInfos)
-
    }, []);
     
     return (
@@ -43,11 +40,11 @@ function Profil() {
                     {userDatas && <Header data={userDatas.data.userInfos} /> }
                     <div className='containerActivites'>
                             <div style={{display: 'flex', flexDirection:'column'}}>
-                                <Activites data={userActivity}/>
+                                <Activites data={userActivity}/> 
                                 <div className='containerGrahs'>
-                                    <Sessions data={userAverageSessions}/>
-                                    <Performances data={userPerformance} />
-                                    <Score data={userDatas.data} />
+                                    <Sessions data={userAverageSessions}/> 
+                                    { userPerformance && <Performances data={userPerformance.data.data} kind={userPerformance.data.kind} /> }
+                                    { userDatas && <Score data={userDatas.data.score} /> }
                                 </div>
                             </div>
                         <Nutriments data={userDatas} />

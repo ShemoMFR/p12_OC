@@ -1,5 +1,5 @@
 /* librairies */
-import React, {useEffect} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types';
 
 /* css */
@@ -7,10 +7,6 @@ import './Header.css';
 import '../../style.css';
 
 function Header(props) { 
-
-    useEffect(() => {
-        props.data && console.log(props.data)
-    }, [])
 
     return (
         <div className='containerHeader'>

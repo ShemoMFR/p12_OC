@@ -1,22 +1,13 @@
 /* Librairies */
-import React, {useState, useEffect} from 'react'; 
+import React from 'react'; 
+import PropTypes from 'prop-types';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
-/* Components */ 
-/* import { getUserActivity } from '../../service/Api';
- */
 /* CSS */
 import './Activites.css';
 import '../../style.css';
 
 function Activites(props) {
-
-    /* const [userActivity, setUserActivity] = useState([]);
-
-    useEffect(() => {
-        getUserActivity().then(datas => setUserActivity(datas.data.sessions));
-        console.log(props.data)
-    }, []) */
 
     return (
         <div className='activites'>
@@ -76,6 +67,14 @@ function Activites(props) {
         </div>           
     )
 }
+
+Activites.propTypes = {  
+    data: PropTypes.arrayOf(PropTypes.shape({
+        calories: PropTypes.number,
+        kilogram: PropTypes.number,
+        day: PropTypes.string
+    }))
+};
 
 export default Activites; 
 

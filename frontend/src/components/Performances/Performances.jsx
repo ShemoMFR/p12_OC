@@ -1,9 +1,7 @@
 /* Librairies */
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {RadarChart, PolarGrid, Radar, PolarAngleAxis, ResponsiveContainer} from 'recharts';
-
-/* Service */
-import { getUserPerformance } from '../../service/Api';
 
 /* CSS */
 import './Performances.css';
@@ -11,27 +9,22 @@ import '../../style.css';
 
 function Performances(props) {
     let datas = [];
-/*     const [userPerformance, setUserPerformance] = useState('');
- */
-   /*  useEffect(() => {
-        getUserPerformance().then(datas => setUserPerformance(datas));
-    }, []) */
 
     function buildObjectDatas() {
         
         let categories = [];
         let values = [];
 
-        props.data && Object.keys(props.data.data.kind).map((keyName, keyIndex) => {
-            categories.push(props.data.data.kind[keyName])
+        props.data && Object.keys(props.kind).map((keyName, keyIndex) => {
+            categories.push(props.kind[keyName])
         })
         
-        props.data && props.data.data.data.map((value, index) => {
+        props.data && props.data.map((value, index) => {
             values.push(value.value);
             datas.push({kind: categories[index], value: value.value})
         })
 
-    }
+    } 
 
     buildObjectDatas();
         
@@ -57,6 +50,15 @@ function Performances(props) {
         </div>
     )
 }
+
+Performance.propTypes = {  
+    data: PropTypes.arrayOf(PropTypes.shape({
+        kind: PropTypes.number,
+        value: PropTypes.number,
+    })),
+    kind: PropTypes.object
+};
+
 
 export default Performances;
 

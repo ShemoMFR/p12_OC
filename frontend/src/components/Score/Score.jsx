@@ -1,9 +1,7 @@
 /* Librairies */
-import React, {useState, useEffect} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
-
-/* Service */
-import {getUserDatas} from '../../service/Api';
 
 /* CSS */
 import './Score.css';
@@ -12,17 +10,10 @@ import '../../style.css';
 
 function Score(props) {
 
-    const [userScore, setScore] = useState([]);
-
 	const pieData = [
-		{ name: "completed", value: props.data && props.data.score, fillColor: "#FF0000" },
-		{ name: "not-completed", value: 1 - props.data && props.data.score, fillColor: "transparent" },
+		{ name: "completed", value: props.data && props.data, fillColor: "#FF0000" },
+		{ name: "not-completed", value: 1 - props.data && props.data, fillColor: "transparent" },
 	  ];
-
-    /* useEffect(() => {
-        getUserDatas().then(datas => setScore(datas.data))
-		
-   }, []); */
 	
 	return (
 
@@ -54,12 +45,16 @@ function Score(props) {
 				</ResponsiveContainer>
 
 				<div className='objective'>
-					<span>{props.data && props.data.score * 100}%</span> <br /> de votre <br />
+					<span>{props.data && props.data * 100}%</span> <br /> de votre <br />
  					de votre objectif
 				</div> 
             
 		</div>
 	);
 }
+
+Score.propTypes = {  
+    data: PropTypes.number
+};
 
 export default Score;
