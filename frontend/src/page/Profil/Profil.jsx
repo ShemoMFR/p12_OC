@@ -1,5 +1,6 @@
 /* Librairies */
 import React, {useEffect, useState} from 'react'
+import {useParams} from "react-router-dom";
 
 /* CSS */ 
 import './Profil.css';
@@ -19,16 +20,18 @@ import { getUserDatas, getUserActivity, getUserAverageSessions, getUserPerforman
 
 function Profil() {
 
+    const {id} = useParams();
+
     const [userDatas, setUserDatas] = useState('');
     const [userActivity, setUserActivity] = useState([]);
     const [userAverageSessions, setUserAverageSessions] = useState([]);
     const [userPerformance, setUserPerformance] = useState('');
 
     useEffect(() => {
-        getUserDatas().then(datas => setUserDatas(datas)); 
-        getUserActivity().then(datas => setUserActivity(datas.data.sessions));
-        getUserAverageSessions().then(datas => setUserAverageSessions(datas.data.sessions));    
-        getUserPerformance().then(datas => setUserPerformance(datas));
+        getUserDatas(id).then(datas => setUserDatas(datas)); 
+        getUserActivity(id).then(datas => setUserActivity(datas.data.sessions));
+        getUserAverageSessions(id).then(datas => setUserAverageSessions(datas.data.sessions));    
+        getUserPerformance(id).then(datas => setUserPerformance(datas));
    }, []);
     
     return (
