@@ -32,7 +32,7 @@ function Profil() {
 
     useEffect(() => {
 
-        if (id === 12 || id === 18) {
+        if (id === "12" || id === "18") {
 
             getUserDatas(id).then(datas => {
                 setUserDatas(datas);
@@ -69,8 +69,9 @@ function Profil() {
                 </div>
         </div>
         :
+
         <NotFound />
-        }
+    }
         </div>
     )
 }

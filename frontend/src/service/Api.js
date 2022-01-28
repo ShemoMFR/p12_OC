@@ -10,7 +10,7 @@
 /**
  * Function qui permet de récupérer les données d'un utilisateur
  * @type {function(number): Promise<any>}
- * @param {number} id ID de l'utilisateur
+ * @param {string} id ID de l'utilisateur
  * @returns {Promise<any>}
  */
 
@@ -20,11 +20,10 @@ export async function getUserDatas(id) {
 
     return userDatas;
 }
-
 /**
  * Function qui permet de récupérer les performances d'un utilisateur
  * @type {function(number): Promise<any>}
- * @param {number} id ID de l'utilisateur
+ * @param {string} id ID de l'utilisateur
  * @returns {Promise<any>}
  */
 
@@ -38,7 +37,7 @@ export async function getUserPerformance(id) {
 /**
  * Function qui permet de récupérer les activités d'un utilisateur
  * @type {function(number): Promise<any>}
- * @param {number} id ID de l'utilisateur
+ * @param {string} id ID de l'utilisateur
  * @returns {Promise<any>}
  */
 
@@ -52,7 +51,7 @@ export async function getUserActivity(id) {
 /**
  * Function qui permet de récupérer les sessions d'un utilisateur
  * @type {function(number): Promise<any>}
- * @param {number} id ID de l'utilisateur
+ * @param {string} id ID de l'utilisateur
  * @returns {Promise<any>}
  */
 
