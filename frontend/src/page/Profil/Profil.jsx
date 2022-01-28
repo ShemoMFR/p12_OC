@@ -32,6 +32,8 @@ function Profil() {
 
     useEffect(() => {
 
+        console.log("test")
+
         if (id === "12" || id === "18") {
 
             getUserDatas(id).then(datas => {
