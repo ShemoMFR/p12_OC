@@ -48,7 +48,19 @@ function Profil() {
     
     return (
         <div>
-        { id === '12' || id === '18' ? <div className='containerProfil'>
+
+        { 
+
+        userDatas === '' || userActivity === '' || userAverageSessions === '' || userPerformance === '' ?
+
+        <p style={{marginTop: '200px'}}>Nous rencontrons un soucis lors du chargement des données provenants de l'API <br/>
+        Veuillez réessayer ultérieurement</p>
+
+        :
+        
+        id === '12' || id === '18' 
+        ? 
+        <div className='containerProfil'>
                 <Navbar />
                 <div className='containerSideNav'>
                     <Navside />
@@ -68,6 +80,7 @@ function Profil() {
                     </div>
                 </div>
         </div>
+
         :
 
         <NotFound />
